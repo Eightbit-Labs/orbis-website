@@ -28,9 +28,9 @@ export default function Hero() {
         {/* Headline */}
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.08] mb-6 animate-fadeInUp delay-100">
           Your{' '}
-          <span className="gradient-text">AI Dev Team</span>
+          <span className="gradient-text">Whole Workflow,</span>
           <br />
-          Lives in Discord.
+          in Orbit
         </h1>
 
         {/* Sub-headline */}
