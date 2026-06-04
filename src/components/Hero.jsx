@@ -33,11 +33,11 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-fadeInUp delay-300">
             <a
-              href="#workspace"
+              href="#pricing"
               className="flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold text-base transition-all duration-200 hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] hover:-translate-y-0.5 active:translate-y-0"
             >
               <WorkspaceIcon />
-              Explore the workspace
+              See pricing
             </a>
             <a
               href="#how-it-works"

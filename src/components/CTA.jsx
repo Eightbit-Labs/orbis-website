@@ -14,7 +14,7 @@ export default function CTA() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#2563eb]/30 bg-[#2563eb]/10 text-[#93c5fd] text-sm font-medium mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb] animate-pulse" />
-            Hermes workspace ready
+            Service pricing ready
           </div>
 
           <h2 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-4">
@@ -28,11 +28,11 @@ export default function CTA() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="#workspace"
+              href="#pricing"
               className="flex items-center gap-2.5 px-8 py-4 rounded-xl bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold text-base transition-all duration-200 hover:shadow-[0_0_35px_rgba(37,99,235,0.55)] hover:-translate-y-0.5 active:translate-y-0"
             >
               <WorkspaceIcon />
-              Open the workspace map
+              Open pricing
             </a>
             <a
               href="#how-it-works"
@@ -56,7 +56,7 @@ export default function CTA() {
 
         <div className="mt-12 text-center">
           <p className="text-gray-500 text-sm">
-            Orbis is the Hermes agent workspace in this repo — not a generic landing page.
+            Orbis is the Hermes agent workspace in this repo — now with clear service pricing.
           </p>
         </div>
       </div>

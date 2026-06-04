@@ -11,14 +11,14 @@ export default function Footer() {
               <span className="text-white font-semibold text-lg tracking-tight">Orbis</span>
             </a>
             <p className="text-gray-500 text-sm leading-relaxed mb-5 max-w-[220px]">
-              A Hermes agent workspace for the current Orbis repo.
+              A Hermes agent workspace for the current Orbis repo with service pricing.
             </p>
           </div>
 
           <FooterGroup
-            title="Workspace"
+            title="Pricing"
             links={[
-              { label: 'Workspace map', href: '#workspace' },
+              { label: 'Service pricing', href: '#pricing' },
               { label: 'Agents', href: '#bots' },
               { label: 'Memory', href: '#features' },
             ]}
@@ -28,7 +28,7 @@ export default function Footer() {
             links={[
               { label: 'How it works', href: '#how-it-works' },
               { label: 'About Orbis', href: '#about' },
-              { label: 'Repo structure', href: '#workspace' },
+              { label: 'Repo structure', href: '#pricing' },
             ]}
           />
           <FooterGroup
@@ -36,7 +36,7 @@ export default function Footer() {
             links={[
               { label: 'Bob', href: '#bots' },
               { label: 'Jim', href: '#bots' },
-              { label: 'shared/', href: '#workspace' },
+              { label: 'shared/', href: '#pricing' },
             ]}
           />
         </div>

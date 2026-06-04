@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 const NAV_LINKS = [
-  { label: 'Workspace', href: '#workspace' },
+  { label: 'Pricing', href: '#pricing' },
   { label: 'Agents', href: '#bots' },
   { label: 'Memory', href: '#features' },
   { label: 'Flow', href: '#how-it-works' },
@@ -47,17 +47,17 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="#workspace"
+            href="#pricing"
             className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
           >
-            Workspace
+            Pricing
           </a>
           <a
-            href="#how-it-works"
+            href="#pricing"
             className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-sm font-medium transition-all duration-200 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]"
           >
             <OrbisIcon />
-            See the flow
+            See pricing
           </a>
         </div>
 
@@ -92,12 +92,12 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="#how-it-works"
+              href="#pricing"
               className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#2563eb] text-white text-sm font-medium mt-2"
               onClick={() => setMenuOpen(false)}
             >
               <OrbisIcon />
-              See the flow
+              See pricing
             </a>
           </nav>
         </div>

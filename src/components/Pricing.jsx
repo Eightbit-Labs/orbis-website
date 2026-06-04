@@ -1,44 +1,49 @@
-const FOLDERS = [
+const PLANS = [
   {
-    name: 'Bob/',
-    title: 'Review lane',
-    description: 'Pull request reviews, repo-aware feedback, and decision consistency.',
+    name: 'Review Lane',
+    price: '$29',
+    cadence: '/mo',
+    description: 'For solo maintainers who want Bob and Joe handling reviews and quick checks.',
     color: '#2563eb',
-    details: ['PR review', 'Repo context', 'Hermes memory'],
+    badge: 'Starter',
+    features: ['Bob PR reviews', 'Joe /ping checks', 'Shared Hermes memory', '1 active repo'],
   },
   {
-    name: 'Jim/',
-    title: 'Editing lane',
-    description: 'GitHub App edits, branch creation, commit automation, and PR generation.',
+    name: 'Editing Lane',
+    price: '$79',
+    cadence: '/mo',
+    description: 'For teams that want code edits, commits, and PR generation on top of review.',
     color: '#38bdf8',
-    details: ['/edit flow', 'GitHub App auth', 'Local key path'],
+    badge: 'Most popular',
+    highlighted: true,
+    features: [
+      'Everything in Review Lane',
+      'Jim GitHub App editing',
+      'Branch, commit, and PR automation',
+      'Custom prompts for team workflows',
+      'Up to 5 repos',
+    ],
   },
   {
-    name: 'Joe/',
-    title: 'Tiny surface',
-    description: 'Simple /ping bot that keeps the workspace lightweight and easy to test.',
-    color: '#93c5fd',
-    details: ['/ping', 'Minimal config', 'Quick checks'],
-  },
-  {
-    name: 'Orbis Command/',
-    title: 'Command center',
-    description: 'The shared orchestration bot for the full Hermes network.',
+    name: 'Command Center',
+    price: '$149',
+    cadence: '/mo',
+    description: 'For larger teams that want the full Orbis network coordinating the work.',
     color: '#34d399',
-    details: ['Slash commands', 'Auth', 'Routing'],
-  },
-  {
-    name: 'shared/',
-    title: 'Memory + utilities',
-    description: 'Hermes memory, secret redaction, and cross-bot context helpers.',
-    color: '#f59e0b',
-    details: ['Memory DB', 'Redaction', 'Prompt helpers'],
+    badge: 'Full stack',
+    features: [
+      'Everything in Editing Lane',
+      'Orbis Command routing',
+      'Secret redaction + shared utilities',
+      'Multi-bot coordination',
+      'Priority support and onboarding',
+    ],
   },
 ]
 
 export default function Pricing() {
   return (
-    <section id="workspace" className="relative py-32 px-6 overflow-hidden">
+    <section id="pricing" className="relative py-32 px-6 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#2563eb] opacity-[0.03] rounded-full blur-[120px]" />
         <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#a78bfa] opacity-[0.02] rounded-full blur-[120px]" />
@@ -48,35 +53,35 @@ export default function Pricing() {
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.04] text-gray-400 text-sm mb-5 animate-fadeInUp">
             <span className="w-1.5 h-1.5 rounded-full bg-[#a78bfa]" />
-            Workspace map
+            Service pricing
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-4 animate-fadeInUp delay-100">
-            The repo is split into{' '}
-            <span className="gradient-text">focused folders</span>
+            Pricing that scales with{' '}
+            <span className="gradient-text">how much Orbis you need</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto animate-fadeInUp delay-200">
-            The site now mirrors the current Orbis folder instead of pretending to be a generic
-            SaaS page.
+            Start with lightweight review and move up to full command orchestration as your team
+            needs more automation.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {FOLDERS.map((folder, index) => (
-            <WorkspaceCard key={folder.name} folder={folder} index={index} />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {PLANS.map((plan, index) => (
+            <PricingCard key={plan.name} plan={plan} index={index} />
           ))}
         </div>
 
         <div className="mt-10 rounded-2xl border border-white/[0.08] bg-[#111118] p-6 animate-fadeInUp delay-400">
           <div className="flex flex-col lg:flex-row lg:items-center gap-6 justify-between">
             <div>
-              <div className="text-xs uppercase tracking-widest text-gray-500 mb-2">Current root</div>
+              <div className="text-xs uppercase tracking-widest text-gray-500 mb-2">Need something custom?</div>
               <div className="text-white font-mono text-sm sm:text-base break-all">
-                C:\Users\Lawrence Tong\Desktop\Projects\orbis
+                Ask for a private deployment or a mixed bot bundle.
               </div>
             </div>
             <div className="text-sm text-gray-400 max-w-2xl">
-              Every section on this page now points back to the real repo layout, so the website
-              describes the same Hermes system the code actually runs.
+              Higher tiers add more automation, more orchestration, and more shared workspace
+              context so the plans improve as the price rises.
             </div>
           </div>
         </div>
@@ -85,45 +90,68 @@ export default function Pricing() {
   )
 }
 
-function WorkspaceCard({ folder, index }) {
+function PricingCard({ plan, index }) {
   return (
     <div
-      className="relative rounded-2xl border border-white/[0.08] bg-[#111118] p-7 hover:border-white/[0.15] hover:bg-[#14141e] transition-all duration-300 animate-fadeInUp"
-      style={{ animationDelay: `${index * 100}ms` }}
+      className={`relative rounded-3xl border bg-[#111118] p-7 transition-all duration-300 animate-fadeInUp ${
+        plan.highlighted ? 'border-[#38bdf8]/40 shadow-[0_0_40px_rgba(56,189,248,0.12)]' : 'border-white/[0.08]'
+      }`}
+      style={{ animationDelay: `${index * 120}ms` }}
     >
-      <div className="flex items-center gap-4 mb-5">
+      {plan.highlighted && (
+        <div className="absolute -top-3 left-6 px-3 py-1 rounded-full text-xs font-semibold bg-[#38bdf8] text-[#03131d]">
+          Most popular
+        </div>
+      )}
+
+      <div className="flex items-start justify-between gap-4 mb-6">
+        <div>
+          <div className="text-xs uppercase tracking-widest text-gray-500 mb-2">{plan.badge}</div>
+          <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
+          <p className="text-gray-400 text-sm mt-2 leading-relaxed">{plan.description}</p>
+        </div>
         <div
-          className="w-14 h-14 rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-lg flex-shrink-0"
+          className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold shrink-0"
           style={{
-            background: `linear-gradient(135deg, ${folder.color}cc, ${folder.color}66)`,
-            border: `1px solid ${folder.color}44`,
+            background: `linear-gradient(135deg, ${plan.color}cc, ${plan.color}66)`,
+            border: `1px solid ${plan.color}44`,
           }}
         >
-          {folder.name}
-        </div>
-        <div>
-          <div className="text-xl font-bold text-white">{folder.title}</div>
-          <div className="text-sm text-gray-400">Orbis workspace folder</div>
+          {index + 1}
         </div>
       </div>
 
-      <p className="text-gray-400 text-sm leading-relaxed mb-6">{folder.description}</p>
+      <div className="mb-7 flex items-end gap-2">
+        <div className="text-5xl font-bold text-white tracking-tight">{plan.price}</div>
+        <div className="text-gray-500 pb-1">{plan.cadence}</div>
+      </div>
 
-      <div className="flex flex-wrap gap-2">
-        {folder.details.map((detail) => (
-          <span
-            key={detail}
-            className="px-2.5 py-1 rounded-md text-xs font-mono"
-            style={{
-              background: `${folder.color}18`,
-              color: folder.color,
-              border: `1px solid ${folder.color}30`,
-            }}
-          >
-            {detail}
-          </span>
+      <div className="space-y-3 mb-7">
+        {plan.features.map((feature) => (
+          <div key={feature} className="flex items-start gap-2.5 text-sm text-gray-300">
+            <svg
+              className="w-4 h-4 mt-0.5 flex-shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke={plan.color}
+              strokeWidth={2.5}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            {feature}
+          </div>
         ))}
       </div>
+
+      <a
+        href="#about"
+        className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#93c5fd] transition-colors"
+      >
+        Choose this plan
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 12h14" />
+        </svg>
+      </a>
     </div>
   )
 }
