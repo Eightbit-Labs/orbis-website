@@ -1,6 +1,6 @@
 const PLANS = [
   {
-    name: 'Review Lane',
+    name: 'Basic',
     price: '$29',
     cadence: '/mo',
     description: 'For solo maintainers who want Bob and Joe handling reviews and quick checks.',
@@ -9,7 +9,7 @@ const PLANS = [
     features: ['Bob PR reviews', 'Joe /ping checks', 'Shared Hermes memory', '1 active repo'],
   },
   {
-    name: 'Editing Lane',
+    name: 'Pro',
     price: '$79',
     cadence: '/mo',
     description: 'For teams that want code edits, commits, and PR generation on top of review.',
@@ -17,7 +17,7 @@ const PLANS = [
     badge: 'Most popular',
     highlighted: true,
     features: [
-      'Everything in Review Lane',
+      'Everything in Basic',
       'Jim GitHub App editing',
       'Branch, commit, and PR automation',
       'Custom prompts for team workflows',
@@ -25,14 +25,14 @@ const PLANS = [
     ],
   },
   {
-    name: 'Command Center',
+    name: 'Max',
     price: '$149',
     cadence: '/mo',
     description: 'For larger teams that want the full Orbis network coordinating the work.',
     color: '#34d399',
     badge: 'Full stack',
     features: [
-      'Everything in Editing Lane',
+      'Everything in Pro',
       'Orbis Command routing',
       'Secret redaction + shared utilities',
       'Multi-bot coordination',
