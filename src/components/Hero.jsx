@@ -17,16 +17,13 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#2563eb]/30 bg-[#2563eb]/10 text-[#93c5fd] text-sm font-medium mb-8 animate-fadeInUp">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb] animate-pulse-glow inline-block" />
-          Hermes workspace · C:\Users\Lawrence Tong\Desktop\Projects\orbis
-        </div>
+        
 
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.08] mb-6 animate-fadeInUp delay-100">
-          The{' '}
-          <span className="gradient-text">Orbis</span>
+          Your{' '}
+          <span className="gradient-text">Whole Workflow,</span>
           <br />
-          Hermes agent workspace
+          in Orbit
         </h1>
 
         <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed animate-fadeInUp delay-200">
