@@ -17,8 +17,6 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto text-center">
-        
-
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.08] mb-6 animate-fadeInUp delay-100">
           Your{' '}
           <span className="gradient-text">Whole Workflow,</span>
@@ -60,7 +58,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 mt-20 w-full max-w-5xl mx-auto">
+      <div className="relative z-10 mt-12 w-full max-w-4xl mx-auto px-4 sm:px-0">
         <WorkspaceHub />
       </div>
 
@@ -90,70 +88,103 @@ function WorkspaceHub() {
   ]
 
   return (
-    <div className="relative h-[260px] flex items-center justify-center">
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-[#2563eb] to-[#93c5fd] flex items-center justify-center z-10 shadow-[0_0_40px_rgba(37,99,235,0.5)]">
-        <OrbisLogo />
+    <div className="relative w-full">
+      <div className="grid gap-3 sm:grid-cols-2 md:hidden">
+        {nodes.map((node) => (
+          <NodeCard key={node.name} node={node} compact />
+        ))}
       </div>
 
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[220px] border border-white/[0.06] rounded-full" />
+      <div className="relative hidden md:flex h-[220px] items-center justify-center">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-[#2563eb] to-[#93c5fd] flex items-center justify-center z-10 shadow-[0_0_40px_rgba(37,99,235,0.5)]">
+          <OrbisLogo />
+        </div>
 
-      {nodes.map((node) => {
-        const rad = (node.angle * Math.PI) / 180
-        const rx = 190
-        const ry = 105
-        const x = Math.cos(rad) * rx
-        const y = Math.sin(rad) * ry
-        return (
-          <div
-            key={node.name}
-            className="absolute flex flex-col items-center gap-1.5 animate-float"
-            style={{
-              left: `calc(50% + ${x}px)`,
-              top: `calc(50% + ${y}px)`,
-              transform: 'translate(-50%, -50%)',
-              animationDelay: node.delay,
-            }}
-          >
-            <div
-              className="w-14 h-14 rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-lg"
-              style={{
-                background: `linear-gradient(135deg, ${node.color}cc, ${node.color}66)`,
-                border: `1px solid ${node.color}44`,
-                boxShadow: `0 0 20px ${node.color}44`,
-              }}
-            >
-              {node.name}
-            </div>
-            <div className="text-center max-w-[120px]">
-              <div className="text-xs font-semibold text-white">{node.name}</div>
-              <div className="text-[10px] text-gray-500">{node.label}</div>
-            </div>
-          </div>
-        )
-      })}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[180px] border border-white/[0.06] rounded-full" />
 
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 800 260">
         {nodes.map((node) => {
           const rad = (node.angle * Math.PI) / 180
-          const rx = 190
-          const ry = 105
-          const cx = 400
-          const cy = 130
+          const rx = 150
+          const ry = 82
+          const x = Math.cos(rad) * rx
+          const y = Math.sin(rad) * ry
           return (
-            <line
+            <div
               key={node.name}
-              x1={cx}
-              y1={cy}
-              x2={cx + Math.cos(rad) * rx}
-              y2={cy + Math.sin(rad) * ry}
-              stroke={node.color}
-              strokeOpacity="0.2"
-              strokeWidth="1"
-              strokeDasharray="4 4"
-            />
+              className="absolute flex flex-col items-center gap-1 animate-float"
+              style={{
+                left: `calc(50% + ${x}px)`,
+                top: `calc(50% + ${y}px)`,
+                transform: 'translate(-50%, -50%)',
+                animationDelay: node.delay,
+              }}
+            >
+              <div
+                className="w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold text-xs shadow-lg"
+                style={{
+                  background: `linear-gradient(135deg, ${node.color}cc, ${node.color}66)`,
+                  border: `1px solid ${node.color}44`,
+                  boxShadow: `0 0 20px ${node.color}44`,
+                }}
+              >
+                {node.name.charAt(0)}
+              </div>
+              <div className="text-center max-w-[110px]">
+                <div className="text-xs font-semibold text-white leading-tight">{node.name}</div>
+                <div className="text-[10px] leading-snug text-gray-500">{node.label}</div>
+              </div>
+            </div>
           )
         })}
-      </svg>
+
+        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 800 220">
+          {nodes.map((node) => {
+            const rad = (node.angle * Math.PI) / 180
+            const rx = 150
+            const ry = 82
+            const cx = 400
+            const cy = 110
+            return (
+              <line
+                key={node.name}
+                x1={cx}
+                y1={cy}
+                x2={cx + Math.cos(rad) * rx}
+                y2={cy + Math.sin(rad) * ry}
+                stroke={node.color}
+                strokeOpacity="0.2"
+                strokeWidth="1"
+                strokeDasharray="4 4"
+              />
+            )
+          })}
+        </svg>
+      </div>
+    </div>
+  )
+}
+
+function NodeCard({ node, compact = false }) {
+  return (
+    <div
+      className={`flex items-center gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4 ${
+        compact ? '' : 'backdrop-blur-sm'
+      }`}
+    >
+      <div
+        className="w-11 h-11 rounded-full flex items-center justify-center text-white font-semibold text-xs shrink-0"
+        style={{
+          background: `linear-gradient(135deg, ${node.color}cc, ${node.color}66)`,
+          border: `1px solid ${node.color}44`,
+          boxShadow: `0 0 20px ${node.color}33`,
+        }}
+      >
+        {node.name.charAt(0)}
+      </div>
+      <div className="min-w-0">
+        <div className="text-sm font-semibold text-white leading-tight">{node.name}</div>
+        <div className="text-xs text-gray-500 leading-snug">{node.label}</div>
+      </div>
     </div>
   )
 }
