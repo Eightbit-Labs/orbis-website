@@ -69,7 +69,7 @@ C:\\Users\\Lawrence Tong\\Desktop\\Projects\\orbis\\Jim> node verify-commands.js
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="relative py-28 px-6 overflow-hidden">
+    <section id="how-it-works" className="reveal relative py-28 px-6 overflow-hidden">
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#93c5fd] opacity-[0.04] rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">

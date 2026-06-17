@@ -123,7 +123,7 @@ const BOTS = [
 
 export default function Bots() {
   return (
-    <section id="bots" className="relative py-28 px-6 overflow-hidden">
+    <section id="bots" className="reveal relative py-28 px-6 overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2563eb] opacity-[0.04] rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
@@ -157,7 +157,7 @@ function BotCard({ bot, delay }) {
     <div
       className={`relative flex flex-col rounded-2xl border bg-[#111118] p-7 transition-all duration-300 ${bot.border} animate-fadeInUp`}
       style={{ animationDelay: `${delay}ms`, boxShadow: 'none' }}
-      onMouseEnter={(e) => (e.currentTarget.style.boxShadow = bot.glow)}
+      onMouseEnter={(e) => (e.currentTarget.style.boxShadow = `0 0 40px ${bot.color}20`)}
       onMouseLeave={(e) => (e.currentTarget.style.boxShadow = 'none')}
     >
       <div className="flex items-center gap-4 mb-5">

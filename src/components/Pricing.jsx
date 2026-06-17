@@ -43,7 +43,7 @@ const PLANS = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="relative py-32 px-6 overflow-hidden">
+    <section id="pricing" className="reveal relative py-32 px-6 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#2563eb] opacity-[0.03] rounded-full blur-[120px]" />
         <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#a78bfa] opacity-[0.02] rounded-full blur-[120px]" />
@@ -93,51 +93,27 @@ export default function Pricing() {
 function PricingCard({ plan, index }) {
   return (
     <div
-      className={`relative rounded-3xl border bg-[#111118] p-7 transition-all duration-300 animate-fadeInUp ${
-        plan.highlighted ? 'border-[#38bdf8]/40 shadow-[0_0_40px_rgba(56,189,248,0.12)]' : 'border-white/[0.08]'
+      className={`relative rounded-2xl border bg-[#0a0a0f] p-7 transition-all duration-300 animate-fadeInUp ${
+        plan.highlighted ? 'border-[#38bdf8]/30' : 'border-white/[0.05]'
       }`}
       style={{ animationDelay: `${index * 120}ms` }}
     >
-      {plan.highlighted && (
-        <div className="absolute -top-3 left-6 px-3 py-1 rounded-full text-xs font-semibold bg-[#38bdf8] text-[#03131d]">
-          Most popular
-        </div>
-      )}
-
       <div className="flex items-start justify-between gap-4 mb-6">
         <div>
-          <div className="text-xs uppercase tracking-widest text-gray-500 mb-2">{plan.badge}</div>
-          <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
-          <p className="text-gray-400 text-sm mt-2 leading-relaxed">{plan.description}</p>
-        </div>
-        <div
-          className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold shrink-0"
-          style={{
-            background: `linear-gradient(135deg, ${plan.color}cc, ${plan.color}66)`,
-            border: `1px solid ${plan.color}44`,
-          }}
-        >
-          {index + 1}
+          <h3 className="text-lg font-semibold text-white">{plan.name}</h3>
+          <p className="text-gray-500 text-sm mt-1">{plan.description}</p>
         </div>
       </div>
 
-      <div className="mb-7 flex items-end gap-2">
-        <div className="text-5xl font-bold text-white tracking-tight">{plan.price}</div>
-        <div className="text-gray-500 pb-1">{plan.cadence}</div>
+      <div className="mb-7 flex items-baseline gap-1">
+        <div className="text-3xl font-bold text-white tracking-tight">{plan.price}</div>
+        <div className="text-gray-500 text-sm">{plan.cadence}</div>
       </div>
 
       <div className="space-y-3 mb-7">
         {plan.features.map((feature) => (
-          <div key={feature} className="flex items-start gap-2.5 text-sm text-gray-300">
-            <svg
-              className="w-4 h-4 mt-0.5 flex-shrink-0"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke={plan.color}
-              strokeWidth={2.5}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
+          <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+            <span className="w-1 h-1 rounded-full bg-gray-600" />
             {feature}
           </div>
         ))}
@@ -145,12 +121,9 @@ function PricingCard({ plan, index }) {
 
       <a
         href="#about"
-        className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#93c5fd] transition-colors"
+        className="w-full flex items-center justify-center gap-2 py-2 rounded-lg border border-white/10 text-xs font-semibold text-white hover:bg-white/5 transition-colors"
       >
-        Choose this plan
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 12h14" />
-        </svg>
+        Choose plan
       </a>
     </div>
   )

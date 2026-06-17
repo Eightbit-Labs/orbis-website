@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden px-6 pt-20 lg:pt-24">
+    <section className="reveal relative min-h-screen overflow-hidden px-6 pt-20 lg:pt-24">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#2563eb] rounded-full opacity-[0.07] blur-[120px]" />
         <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-[#38bdf8] rounded-full opacity-[0.04] blur-[100px]" />
@@ -34,7 +34,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-fadeInUp delay-300">
             <a
               href="#pricing"
-              className="flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold text-base transition-all duration-200 hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] hover:-translate-y-0.5 active:translate-y-0"
+              className="magnetic flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold text-base transition-all duration-200 hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] hover:-translate-y-0.5 active:translate-y-0"
             >
               <WorkspaceIcon />
               See pricing
@@ -113,7 +113,7 @@ function WorkspaceHub() {
           return (
             <div
               key={node.name}
-              className="absolute flex flex-col items-center gap-2 animate-float"
+              className="absolute flex flex-col items-center gap-2 animate-float pointer-events-auto"
               style={{
                 left: `calc(50% + ${x}px)`,
                 top: `calc(50% + ${y}px)`,
@@ -122,7 +122,7 @@ function WorkspaceHub() {
               }}
             >
               <div
-                className="w-14 h-14 rounded-full flex items-center justify-center text-white font-semibold text-sm shadow-lg"
+                className="w-14 h-14 rounded-full flex items-center justify-center text-white font-semibold text-sm shadow-lg shrink-0 transition-all duration-300 hover:scale-110"
                 style={{
                   background: `linear-gradient(135deg, ${node.color}cc, ${node.color}66)`,
                   border: `1px solid ${node.color}44`,
@@ -154,9 +154,10 @@ function WorkspaceHub() {
                 x2={cx + Math.cos(rad) * rx}
                 y2={cy + Math.sin(rad) * ry}
                 stroke={node.color}
-                strokeOpacity="0.2"
+                strokeOpacity="0.4"
                 strokeWidth="1"
                 strokeDasharray="4 4"
+                className="animate-pulse"
               />
             )
           })}

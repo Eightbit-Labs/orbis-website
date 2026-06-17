@@ -69,7 +69,7 @@ const FEATURES = [
 
 export default function Features() {
   return (
-    <section id="features" className="relative py-28 px-6 overflow-hidden">
+    <section id="features" className="reveal relative py-28 px-6 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#2563eb] opacity-[0.05] rounded-full blur-[100px]" />
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#38bdf8] opacity-[0.04] rounded-full blur-[100px]" />
@@ -104,17 +104,19 @@ export default function Features() {
 function FeatureCard({ feature, index }) {
   return (
     <div
-      className="group relative rounded-2xl border border-white/[0.07] bg-[#111118] p-6 hover:border-white/[0.15] hover:bg-[#14141e] transition-all duration-300 animate-fadeInUp"
+      className="group relative rounded-2xl border border-white/[0.07] bg-[#111118] p-6 hover:border-white/[0.15] hover:bg-[#14141e] transition-all duration-300 animate-fadeInUp overflow-hidden"
       style={{ animationDelay: `${index * 80}ms` }}
     >
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none" style={{ background: `radial-gradient(circle at 50% -20%, ${feature.color}, transparent 70%)` }}></div>
+
       <div
-        className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
+        className="relative z-10 w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
         style={{ background: `${feature.color}18`, color: feature.color, border: `1px solid ${feature.color}28` }}
       >
         {feature.icon}
       </div>
-      <h3 className="text-white font-semibold text-base mb-2">{feature.title}</h3>
-      <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
+      <h3 className="relative z-10 text-white font-semibold text-base mb-2">{feature.title}</h3>
+      <p className="relative z-10 text-gray-400 text-sm leading-relaxed">{feature.description}</p>
 
       <div
         className="absolute bottom-0 left-6 right-6 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"
